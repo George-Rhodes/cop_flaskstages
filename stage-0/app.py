@@ -25,5 +25,3 @@ def about():
             </html>
         """
 
-
-
