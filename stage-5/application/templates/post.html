@@ -1,12 +1,12 @@
 {% extends "layout.html" %}
-{ % block body_content% }
+{% block body_content %}
 <div class="form">
 	<form method="POST" action="">
 		{{ form.hidden_tag() }}
 		<div class="form-group">
 			{{ form.first_name.label }}
 			{% if form.first_name.errors %}
-			{{% form.first_name %}}
+			{{ form.first_name }}
 			<div class="error">
 				{% for error in form.first_name.errors %}
 				    <span>{{ error }}</span>
@@ -23,5 +23,5 @@
 		</div>
 	</form>
 </div>
-{ % endblock body_content % }
+{% endblock body_content %}
 
