@@ -91,15 +91,15 @@ def account():
 		form.email.data = current_user.email
 	return render_template('account.html', title='Account', form=form)
 
-@app.route("/deleteaccount", methods=["GET", "POST"])
+@app.route("/account/delete", methods=["GET", "POST"])
 @login_required
-def deleteAccount():
-	user = current_user.id
-	posts = Posts.query.filter_by(user_id=user)
-	for post in posts:
-		db.session.delete(post)
-	account = Users.query.filter_by(id=user).first()
-	logout_user()
-	db.session.delete(account)
-	db.session.commit()
-	return redirect(url_for('register'))
+def account_delete():
+        user = current_user.id
+        posts = Posts.query.filter_by(user_id=user)
+        for post in posts:
+                db.session.delete(post)
+        account = Users.query.filter_by(id=user).first()
+        logout_user()
+        db.session.delete(account)
+        db.session.commit()
+        return redirect(url_for('register'))
